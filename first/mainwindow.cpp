@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "widgetfirst.h"
-
+#include "dialog.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -18,6 +18,18 @@ MainWindow::MainWindow(QWidget *parent)
     // 创建窗口对象的时候 传入父对象 则内嵌 而非独立窗口
     WidgetFirst* widget = new WidgetFirst(this);
 #endif
+
+
+#if 0
+    // 非模态
+    Dialog* dlg = new Dialog(this);
+    dlg->show();
+#else
+    Dialog* dlg = new Dialog(this);
+    dlg->exec();
+
+#endif
+
 
 }
 
